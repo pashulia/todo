@@ -1,14 +1,21 @@
-// AddTodo.tsx
-
 import React, { useState } from 'react';
 
+import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
 
+import {
+    Button,
+    Input,
+} from '../assets/styles/components.styles';
 import { TodoItems } from './todo.model';
 
 interface AddTodoProps {
   onAdd: (newTodo: TodoItems) => void; // Обновляем тип параметра на объект Todo
 }
+
+const AddButton = styled(Button)`
+    width: 100px;
+`;
 
 const AddTodo: React.FC<AddTodoProps> = ({ onAdd }) => {
     const [newTitle, setNewTitle] = useState('');
@@ -27,13 +34,13 @@ const AddTodo: React.FC<AddTodoProps> = ({ onAdd }) => {
 
     return (
         <div className="add-todo">
-            <input
+            <Input
                 type="text"
-                placeholder="Add a new task"
+                placeholder="New todo..."
                 value={newTitle}
                 onChange={(e) => setNewTitle(e.target.value)}
             />
-            <button onClick={handleAddClick}>Add</button>
+            <AddButton onClick={handleAddClick}>Add</AddButton>
         </div>
     );
 };

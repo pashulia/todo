@@ -1,33 +1,39 @@
-// FilterButtons.tsx
-
 import React from 'react';
+
+import styled from 'styled-components';
+
+import { Button } from '../assets/styles/components.styles';
 
 interface FilterButtonsProps {
     activeFilter: string;
     onFilterChange: (filter: string) => void;
 }
 
+const FilterButton = styled(Button)`
+    margin: 10px 10px 10px 0;
+`
+
 const FilterButtons: React.FC<FilterButtonsProps> = ({activeFilter, onFilterChange,}) => {
     return (
         <div>
-            <button
+            <FilterButton
                 onClick={() => onFilterChange('all')}
                 className={activeFilter === 'all' ? 'active' : ''}
             >
                 Show All Tasks
-            </button>
-            <button
+            </FilterButton>
+            <FilterButton
                 onClick={() => onFilterChange('active')}
                 className={activeFilter === 'active' ? 'active' : ''}
             >
                 Show Active Tasks
-            </button>
-            <button
+            </FilterButton>
+            <Button
                 onClick={() => onFilterChange('completed')}
                 className={activeFilter === 'completed' ? 'active' : ''}
             >
                 Show Completed Tasks
-            </button>
+            </Button>
         </div>
     );
 };

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styled from 'styled-components';
+
 import { TodoItems } from './todo.model';
 import TodoController from './TodoController';
 
@@ -10,6 +12,13 @@ interface TodoListProps {
     onEditTitle: (id: string, newTitle: string) => void;
 }
 
+const Total = styled.div`
+    font-size: 24px;
+    font-weight: bold;
+    color: #a453f0;;
+    margin: 20px 0; 
+`
+
 const Todo: React.FC<TodoListProps> = ({
         todos,
         onDelete,
@@ -19,9 +28,9 @@ const Todo: React.FC<TodoListProps> = ({
 
     return (
         <div>
-            <div className="todo-counter">
-                Total Tasks: {todos.length}
-            </div>
+            <Total>
+                {todos.length} tasks remaining
+            </Total>
             <div className="todo-list">
                 {todos.map((todo) => (
                     <TodoController
