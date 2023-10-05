@@ -11,9 +11,13 @@ interface FilterButtonsProps {
 
 const FilterButton = styled(Button)`
     margin: 10px 10px 10px 0;
-`
+    color: #fff;
+    &.active {
+        box-shadow: 0px 0px 10px 3px #a453f0;;
+    }
+`;
 
-const FilterButtons: React.FC<FilterButtonsProps> = ({activeFilter, onFilterChange,}) => {
+const FilterButtons: React.FC<FilterButtonsProps> = ({ activeFilter, onFilterChange }) => {
     return (
         <div>
             <FilterButton
@@ -28,12 +32,12 @@ const FilterButtons: React.FC<FilterButtonsProps> = ({activeFilter, onFilterChan
             >
                 Show Active Tasks
             </FilterButton>
-            <Button
+            <FilterButton
                 onClick={() => onFilterChange('completed')}
                 className={activeFilter === 'completed' ? 'active' : ''}
             >
                 Show Completed Tasks
-            </Button>
+            </FilterButton>
         </div>
     );
 };

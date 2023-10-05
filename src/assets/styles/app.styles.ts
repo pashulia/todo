@@ -11,8 +11,6 @@ export const SHeader = styled.header`
   display: inline-block;
   color: white;
   padding: 10px;
-  border: solid 2px #a453f0;
-  border-radius: 10px;
 `
 
 const spin = keyframes`
